@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace cloudstore\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
