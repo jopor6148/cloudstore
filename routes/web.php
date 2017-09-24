@@ -13,3 +13,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+require_once 'routes'.DIRECTORY_SEPARATOR.'office'.DIRECTORY_SEPARATOR.'office.php';
