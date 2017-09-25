@@ -14,8 +14,8 @@ class ctrBranches extends Controller
      */
     public function index()
     {
-        dd(sucursale::all());
-        return 'sandra hermosa';
+        $sucursales = sucursale::where(['Estatus'=>1])->get();
+        return view('office/branches.viewSucursales',compact('sucursales'));
     }
 
     /**
@@ -37,6 +37,7 @@ class ctrBranches extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**
