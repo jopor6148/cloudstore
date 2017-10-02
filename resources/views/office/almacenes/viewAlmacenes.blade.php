@@ -1,7 +1,6 @@
 @extends('office/layoutOffice')
 @section('content')
-  {{dump($sucursales)}}
-  <div class="contentSucursales">
+  <div class="contentAlmacenes">
 
     @if (session()->has('respuesta'))
       <div class="mensajes">
@@ -15,34 +14,38 @@
 
     {{dump(@$errors)}}
 
-    <div class="tableSucursales">
-      <h3>Sucursales</h3>
+    <div class="tableAlmacenes">
+      <h3>Almacenes</h3>
         <table>
           <thead>
             <tr>
               <th>#</th>
               <th>Codigo</th>
               <th>Nombre</th>
+              <th>Sucursal</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            @forelse ($sucursales as $key => $value)
+            @forelse ($almacenes as $key => $value)
               <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$value->SucursalID}}</td>
-                <td>{{$value->NombreSucursal}}</td>
-                <td><button type="button" class="editarSucursal" name="{{$value->SucursalID}}" suc="{{$value->SucursalID}}">Editar</button></td>
+                <td>{{$value->AlmacenID}}</td>
+                <td>{{$value->NombreAlmacen}}</td>
+                <td>@foreach ($value->sucursal()->get() as $keysucursal => $valuesucursal)
+                  {{$valuesucursal->NombreSucursal}}
+                @endforeach</td>
+                <td><button type="button" class="editarSucursal" name="{{$value->AlmacenID}}" suc="{{$value->AlmacenID}}">Editar</button></td>
               </tr>
             @empty
             @endforelse
             <tr>
               <form class="" action="" method="post">
                 {{ csrf_field() }}
-                <td>Agregar Sucursal</td>
+                <td>Agregar Almacen</td>
                 <td>Codigo</td>
                 <td><input type="text" name="Nombre" value="" placeholder="Nombre"></td>
-                <td><button type="submit" name="agregarSuc" value="agregarSuc">Agregar</button></td>
+                <td><button type="submit" name="agregarAlm" value="agregarAlm">Agregar</button></td>
               </form>
             </tr>
           </tbody>

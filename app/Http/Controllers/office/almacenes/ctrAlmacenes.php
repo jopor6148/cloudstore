@@ -1,17 +1,14 @@
 <?php
 
-namespace cloudstore\Http\Controllers\office\branches;
+namespace cloudstore\Http\Controllers\office\almacenes;
 
 use Illuminate\Http\Request;
-use cloudstore\Http\Controllers\Controller;
-use cloudstore\Models\office\sucursale;
-use cloudstore\Models\office\almacenes;
-use Carbon\Carbon;
-use Auth;
-use Gate;
 use Illuminate\Database\QueryException;
+use cloudstore\Http\Controllers\Controller;
+use cloudstore\Models\office\almacenes;
+use cloudstore\Models\office\sucursale;
 
-class ctrBranches extends Controller
+class ctrAlmacenes extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +17,9 @@ class ctrBranches extends Controller
      */
     public function index()
     {
-        $sucursales = sucursale::where(['Estatus'=>1])->get();
-        // $sucursales->paginate(10);
-        return view('office/branches.viewSucursales',compact('sucursales'));
+
+        $almacenes=almacenes::where(['Estatus'=>1])->get();
+        return view('office/almacenes.viewAlmacenes',compact('almacenes'));
     }
 
     /**
@@ -44,47 +41,6 @@ class ctrBranches extends Controller
     public function store(Request $request)
     {
         //
-        try {
-
-          $resSucursal = sucursale::create(
-            [
-              'NombreSucursal'=>$request->Nombre,
-              "Direccion"=>"",
-              "Ciudad"=>"",
-              "Estado"=>"",
-              "CP"=>"",
-              "Pais"=>"",
-              "Descripcion"=>"",
-              "Estatus"=>1,
-            ]
-          );
-
-          try {
-
-            $id = $resSucursal->id;
-            almacenes::create(
-              [
-                'SucursalID'=>$id,
-                'NombreAlmacen'=>'Principal',
-                'Estatus'=>'1',
-                'TipoAlmacen'=>'1',
-              ]
-            );
-
-          } catch (QueryException $db) {
-
-              return redirect()->back()->withErrors(["Problea al generar almacen pricipal para sucursal \n ".json_encode($db)]);
-
-          }
-
-        } catch (QueryException $db) {
-
-          return redirect()->back()->withErrors(["Problea al generar Sucursal \n ".json_encode($db)]);
-
-        }
-
-
-        return redirect()->back()->with('respuesta',['Sucursal creada']);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace cloudstore\Models\office;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class sucursale extends Model
 {
@@ -25,8 +26,21 @@ class sucursale extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'SucursalID',
-        'Nombre',
+      "NombreSucursal",
+      "Direccion",
+      "Ciudad",
+      "Estado",
+      "CP",
+      "Pais",
+      "Descripcion",
+      "Estatus",
     ];
+
+    protected $append = [
+    	'abstract',
+    ];
+
+    public function  almacenes (){
+      return $this->hasMany("cloudstore\Models\office\almacenes","AlmacenID");
+    }
 }

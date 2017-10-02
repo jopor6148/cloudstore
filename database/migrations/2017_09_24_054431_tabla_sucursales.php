@@ -13,10 +13,9 @@ class TablaSucursales extends Migration
      */
     public function up()
     {
-      Schema::connection('mysql')->create('sucursales', function (Blueprint $table) {
-        $table->increments('id');
-        $table->unsignedBigInteger('SucursalID')->unique();
-        $table->string('Nombre',300);
+      Schema::connection('corecloudstore')->create('sucursales', function (Blueprint $table) {
+        $table->bigIncrements('SucursalID');
+        $table->string('NombreSucursal',300);
         $table->string('Direccion',300);
         $table->string('Ciudad',100);
         $table->string('Estado',100);
@@ -35,6 +34,6 @@ class TablaSucursales extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('sucursales');
+        Schema::connection('corecloudstore')->dropIfExists('sucursales');
     }
 }
