@@ -40,7 +40,29 @@ class ctrAlmacenes extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val=$request->validate([
+          "SucursalID"=>["required"],
+        ]);
+
+        try {
+
+
+          almacenes::create(
+            [
+              'SucursalID'=>$request->SucursalID,
+              'NombreAlmacen'=>$request->Nombre,
+              'Estatus'=>'1',
+              'TipoAlmacen'=>'0',
+            ]
+          );
+
+        } catch (QueryException $db) {
+
+            return redirect()->back()->withErrors(["Problea al generar almacen  \n ".json_encode($db)]);
+
+        }
+
+        return redirect()->back()->with('respuesta',['Almacen creado']);
     }
 
     /**

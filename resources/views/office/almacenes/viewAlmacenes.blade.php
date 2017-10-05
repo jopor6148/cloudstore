@@ -1,3 +1,4 @@
+
 @extends('office/layoutOffice')
 @section('content')
   <div class="contentAlmacenes">
@@ -45,6 +46,14 @@
                 <td>Agregar Almacen</td>
                 <td>Codigo</td>
                 <td><input type="text" name="Nombre" value="" placeholder="Nombre"></td>
+                <td>
+                  <select class="" name="SucursalID">
+                    <option value="none" selected disabled>Sucursal</option>
+                    @foreach (cloudstore\Models\office\sucursale::where(["Estatus"=>1])->get() as $kSuc => $vsuc)
+                      <option value="{{$vsuc->SucursalID}}">{{$vsuc->SucursalID}}</option>
+                    @endforeach
+                  </select>
+                </td>
                 <td><button type="submit" name="agregarAlm" value="agregarAlm">Agregar</button></td>
               </form>
             </tr>
