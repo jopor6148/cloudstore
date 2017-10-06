@@ -19,7 +19,7 @@ class CreateInventariosTable extends Migration
             $table->bigInteger('PedimentoID');
             $table->bigInteger('LoteID');
             $table->bigInteger('ArticuloID');
-            $table->decimal('Cantidad');
+            $table->float('Cantidad');
             $table->timestamps();
         });
     }

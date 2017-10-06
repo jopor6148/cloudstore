@@ -27,7 +27,16 @@ class inventarios extends Model
   }
 
   public function pedimentos (){
-    return $this->hasOne("cloudstore\Models\office\pedimentos", "PedimentoID", "PedimentoID");
+    return $this->belongsToMany("cloudstore\Models\office\pedimentos", "PedimentoID", "PedimentoID");
+  }
+
+  public function articulos (){
+    return $this->belongsToMany("cloudstore\Models\office\articulos", "ArticuloID", "ArticuloID");
+  }
+
+
+  public function lotes (){
+    return $this->belongsToMany("cloudstore\Models\office\lotes", "LoteID", "LoteID");
   }
 
 

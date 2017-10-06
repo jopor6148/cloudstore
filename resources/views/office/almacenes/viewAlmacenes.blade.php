@@ -1,4 +1,3 @@
-
 @extends('office/layoutOffice')
 @section('content')
   <div class="contentAlmacenes">
