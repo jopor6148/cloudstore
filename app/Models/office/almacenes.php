@@ -10,7 +10,6 @@ class almacenes extends Model
     //
     protected $table ='almacenes';
     protected $connection ="corecloudstore";
-
     protected $fillable=
     [
       "SucursalID",
@@ -18,7 +17,7 @@ class almacenes extends Model
       "Estatus",
       "TipoAlmacen",
     ];
-
+    
     protected $append = [
     	'abstract',
     ];
