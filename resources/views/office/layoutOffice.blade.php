@@ -5,6 +5,7 @@
     <title>office - @yield('title')</title>
   </head>
   <link rel="stylesheet" href="{{url('css/office/layout.css')}}">
+  <script src="{{url("assets/jquery/jquery.min.js")}}" charset="utf-8"></script>
   @yield('css')
   @yield('js')
   <body>

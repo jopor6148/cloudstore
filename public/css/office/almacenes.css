@@ -1,0 +1,22 @@
+.contentAlmacenes{
+  width: 100%;
+}
+
+.tableAlmacenes{
+  width: 48%;
+  padding: 10px;
+  float: left;
+}
+
+.divInventario{
+  width: 48%;
+  padding: 10px;
+  float: left;
+}
+
+.errors{
+  width: 100%;
+}
+.divReporteInv{
+  width: 100%;
+}

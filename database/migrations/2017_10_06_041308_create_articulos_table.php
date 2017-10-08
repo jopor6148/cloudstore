@@ -16,9 +16,6 @@ class CreateArticulosTable extends Migration
         Schema::create('articulos', function (Blueprint $table) {
             $table->bigIncrements('ArticuloID');
             $table->string("Codigo",100);
-            $table->bigInteger("CategoriaID");
-            $table->bigInteger("MarcaID");
-            $table->bigInteger("TonoID");
             $table->float("Costo");
             $table->float("PrecioMenudeo");
             $table->float("PrecioMayoreo");

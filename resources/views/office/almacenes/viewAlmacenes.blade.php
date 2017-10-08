@@ -1,4 +1,13 @@
 @extends('office/layoutOffice')
+@section('css')
+  <link rel="stylesheet" href="{{url("css/office/almacenes.css")}}">
+@endsection
+@section('js')
+<script src="{{url("js/office/almacenes/almacenes.js")}}" charset="utf-8"></script>
+<script type="text/javascript">
+$rutaAlmacenes = "{{url("")}}";
+</script>
+@endsection
 @section('content')
   <div class="contentAlmacenes">
 
@@ -12,7 +21,9 @@
       </div>
     @endif
 
-    {{dump(@$errors)}}
+    <div class="errors">
+      {{dump(@$errors)}}
+    </div>
 
     <div class="tableAlmacenes">
       <h3>Almacenes</h3>
@@ -60,7 +71,15 @@
         </table>
     </div>
 
+    <div class="divInventario">
+      <h3>inventarios</h3>
+      <div class="divReporteInv">
+
+      </div>
+    </div>
+
     <div class="divContrlesSucursal">
+
 
     </div>
 
