@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class lotes extends Model
 {
-    //
+  protected $table ='lotes';
+  protected $connection ="corecloudstore";
+
+  protected $fillable =
+  [
+    "LoteID",
+    "Numero",
+    "FechaCaducidad",
+    "created_at",
+  ];
+
+  protected $append = [
+    'abstract',
+  ];
+
+  public function inventarios (){
+    return $this->belongsToMany("cloudstore\Models\office\inventarios","LoteID","LoteID");
+  }
 }
