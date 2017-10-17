@@ -6,6 +6,7 @@ Route::group(['prefix'=>'office'],function(){
 
   Route::resource('almacenes','office\almacenes\ctrAlmacenes');
 
+  Route::resource("invetarios",'office\inventarios\ctrInventarios');
 
 });
 

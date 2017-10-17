@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="{{url("css/office/almacenes.css")}}">
 @endsection
 @section('js')
-<script src="{{url("js/office/almacenes/almacenes.js")}}" charset="utf-8"></script>
+<script src="{{url("js/office/almacenes.js")}}" charset="utf-8"></script>
 <script type="text/javascript">
 $rutaAlmacenes = "{{url("")}}";
 </script>
@@ -27,7 +27,7 @@ $rutaAlmacenes = "{{url("")}}";
 
     <div class="tableAlmacenes">
       <h3>Almacenes</h3>
-        <table>
+        <table id="tableAlmacenes">
           <thead>
             <tr>
               <th>#</th>
@@ -39,7 +39,7 @@ $rutaAlmacenes = "{{url("")}}";
           </thead>
           <tbody>
             @forelse ($almacenes as $key => $value)
-              <tr>
+              <tr almacen="{{$value->AlmacenID}}">
                 <td>{{$key+1}}</td>
                 <td>{{$value->AlmacenID}}</td>
                 <td>{{$value->NombreAlmacen}}</td>

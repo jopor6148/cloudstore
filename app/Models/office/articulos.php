@@ -8,9 +8,10 @@ class articulos extends Model
 {
   protected $table ='articulos';
   protected $connection ="corecloudstore";
-
+  protected $primaryKey = "ArticuloID";
   protected $fillable =
   [
+    "ArticuloID",
     "LoteID",
     "Codigo",
     "Costo",

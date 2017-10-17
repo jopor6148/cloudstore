@@ -17,13 +17,23 @@ class almacenes extends Model
       "Estatus",
       "TipoAlmacen",
     ];
-    
+
     protected $append = [
     	'abstract',
     ];
 
+    protected $primaryKey = "AlmacenID";
 
     public function sucursal (){
       return $this->hasOne("cloudstore\Models\office\sucursale","SucursalID","SucursalID");
+    }
+
+    public function inventario (){
+      return $this->hasOne("cloudstore\Models\office\inventarios","AlmacenID","AlmacenID");
+    }
+
+
+    public function articulos (){
+      return $this->belongsToMany("cloudstore\Models\office\articulos","inventarios","AlmacenID","ArticuloID");
     }
 }

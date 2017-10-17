@@ -1,14 +1,12 @@
 <?php
 
-namespace cloudstore\Http\Controllers\office\almacenes;
+namespace cloudstore\Http\Controllers\office\inventarios;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\QueryException;
 use cloudstore\Http\Controllers\Controller;
-use cloudstore\Models\office\almacenes;
-use cloudstore\Models\office\sucursale;
+use cloudstore\Models\office\inventarios;
 
-class ctrAlmacenes extends Controller
+class ctrInventarios extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,6 @@ class ctrAlmacenes extends Controller
     public function index()
     {
 
-        $almacenes=almacenes::where(['Estatus'=>1])->get();
-        return view('office/almacenes.viewAlmacenes',compact('almacenes'));
     }
 
     /**
@@ -40,34 +36,9 @@ class ctrAlmacenes extends Controller
      */
     public function store(Request $request)
     {
-
         if ($request->has("funcion")) {
           return $this->{$request->funcion}($request);
         }
-
-        $val=$request->validate([
-          "SucursalID"=>["required"],
-        ]);
-
-        try {
-
-
-          almacenes::create(
-            [
-              'SucursalID'=>$request->SucursalID,
-              'NombreAlmacen'=>$request->Nombre,
-              'Estatus'=>'1',
-              'TipoAlmacen'=>'0',
-            ]
-          );
-
-        } catch (QueryException $db) {
-
-            return redirect()->back()->withErrors(["Problea al generar almacen  \n ".json_encode($db)]);
-
-        }
-
-        return redirect()->back()->with('respuesta',['Almacen creado']);
     }
 
     /**
@@ -78,7 +49,7 @@ class ctrAlmacenes extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -117,7 +88,9 @@ class ctrAlmacenes extends Controller
 
 
     private function obtenerInventario($request){
-      return view("office/inventarios/viewInventario",["datos"=>almacenes::where(["AlmacenID"=>$request->datos["almacen"]])->get()]);
+
+      return view("office/inventarios/viewInventario",["datos"=>inventarios::where(["AlmacenID"=>$request->datos["almacen"]])->get()]);
+
     }
 
 }

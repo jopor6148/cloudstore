@@ -8,6 +8,7 @@ class inventarios extends Model
 {
   protected $table ='inventarios';
   protected $connection ="corecloudstore";
+  protected $primaryKey = "AlmacenID";
 
   protected $fillable =
   [
@@ -31,7 +32,7 @@ class inventarios extends Model
   }
 
   public function articulos (){
-    return $this->belongsToMany("cloudstore\Models\office\articulos", "ArticuloID", "ArticuloID");
+    return $this->belongsToMany("cloudstore\Models\office\articulos","inventarios","ArticuloID","ArticuloID");
   }
 
 
