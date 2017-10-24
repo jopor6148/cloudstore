@@ -4,7 +4,7 @@
 
 <div class="contentInventario">
   <div class="divTableInventario">
-    <table>
+    <table class="contentTable">
       <thead>
         <tr>
           <th>Articulo</th>

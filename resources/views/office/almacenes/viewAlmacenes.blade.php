@@ -23,9 +23,10 @@ $rutaAlmacenes = "{{url("")}}";
 
     <div class="errors">
       {{dump(@$errors)}}
+      {{dump($sucursal)}}
     </div>
 
-    <div class="tableAlmacenes">
+    <div class="tableAlmacenes contentTable">
       <h3>Almacenes</h3>
         <table id="tableAlmacenes">
           <thead>
@@ -51,21 +52,32 @@ $rutaAlmacenes = "{{url("")}}";
             @empty
             @endforelse
             <tr>
-              <form class="" action="" method="post">
-                {{ csrf_field() }}
+
                 <td>Agregar Almacen</td>
                 <td>Codigo</td>
                 <td><input type="text" name="Nombre" value="" placeholder="Nombre"></td>
                 <td>
+                @if (!isset($sucursal))
                   <select class="" name="SucursalID">
                     <option value="none" selected disabled>Sucursal</option>
                     @foreach (cloudstore\Models\office\sucursale::where(["Estatus"=>1])->get() as $kSuc => $vsuc)
                       <option value="{{$vsuc->SucursalID}}">{{$vsuc->SucursalID}}</option>
                     @endforeach
                   </select>
+                @else
+                @endif
                 </td>
-                <td><button type="submit" name="agregarAlm" value="agregarAlm">Agregar</button></td>
-              </form>
+                <td>
+                  <form class="formAgregaAlmacen" action="{{url("office/almacenes")}}" method="post">
+                                  {{ csrf_field() }}
+                    <input type="hidden" name="Nombre" value="" placeholder="Nombre">
+                    <input type="hidden" name="SucursalID" value="{{@$sucursal}}">
+                    <button type="submit" name="agregarAlm" value="agregarAlm">Agregar</button>
+                  </form>
+                </td>
+
+
+
             </tr>
           </tbody>
         </table>
@@ -75,6 +87,37 @@ $rutaAlmacenes = "{{url("")}}";
       <h3>inventarios</h3>
       <div class="divReporteInv">
 
+      </div>
+    </div>
+
+
+    <div class="divArticulos">
+      <h3>Todos los articulos</h3>
+      <div class="divTabla articulos contentTable">
+        <table class="">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Descripcion</th>
+              <th>Precio Menu.</th>
+              <th>Precio Mayo.</th>
+            </tr>
+          </thead>
+          <tbody>
+            @forelse (cloudstore\models\office\articulos::get() as $key => $value)
+              <tr>
+                <td>{{$value->Codigo}}</td>
+                <td>{{$value->Descripcion}}</td>
+                <td>{{$value->PrecioMenudeo}}</td>
+                <td>{{$value->PrecioMayoreo}}</td>
+              </tr>
+            @empty
+              <tr>
+                <td colspan="4">Sin articulos</td>
+              </tr>
+            @endforelse
+          </tbody>
+        </table>
       </div>
     </div>
 

@@ -1,9 +1,4 @@
-var objSend={
-  type:"json",
-  data:{},
-  url:"",
-  async:false,
-};
+
 
 var send = function(type){
 
@@ -57,19 +52,21 @@ var obtenerInventario = function(almacen){
 
 $(function (){
 
-  $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-        async:objSend.async,
-    }
-  });
 
-  $("#tableAlmacenes").on("click","tbody tr",function(){
+
+  $(this).on("click","#tableAlmacenes tbody tr",function(){
 
     $almacen = $(this).attr("almacen");
+    $(this).parent().children("tr").css({"background-color":"#fff"});
+      obtenerInventario($almacen);
+    $(this).css({"background-color":"#e8e8e8"});
+  });
 
-    obtenerInventario($almacen);
 
+  $(this).on("keyup","#tableAlmacenes tbody tr td input[name=Nombre]",function(e){
+    $val = $(this).val();
+    console.log($val);
+    $(document).find(".formAgregaAlmacen input[name=Nombre]").val($val);
   });
 
 })

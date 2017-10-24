@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Auth;
 use Gate;
 use Illuminate\Database\QueryException;
+use DB;
 
 class ctrBranches extends Controller
 {
@@ -43,6 +44,10 @@ class ctrBranches extends Controller
      */
     public function store(Request $request)
     {
+
+      if ($request->has("funcion")) {
+        return $this->{$request->funcion}($request);
+      } else {
         //
         try {
 
@@ -85,6 +90,8 @@ class ctrBranches extends Controller
 
 
         return redirect()->back()->with('respuesta',['Sucursal creada']);
+      }
+
     }
 
     /**
@@ -131,4 +138,21 @@ class ctrBranches extends Controller
     {
         //
     }
+
+
+    private function obtenerAlmacen ($request)
+    {
+
+      // DB::connection('corecloudstore')->enableQueryLog();
+      // dump($request->input());
+      $almacenes=almacenes::where("Estatus",1);
+      $almacenes->where('SucursalID', $request->datos["sucursal"]);
+      $almacenes = $almacenes->get();
+      $sucursal = $request->datos["sucursal"];
+      // dump(DB::connection("corecloudstore")->getQueryLog());
+      return view('office/almacenes.viewAlmacenes',compact(['almacenes',"sucursal"]));
+
+    }
+
+
 }

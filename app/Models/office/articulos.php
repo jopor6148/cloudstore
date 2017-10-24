@@ -24,6 +24,7 @@ class articulos extends Model
     "FechaModificacion",
     "ModificadoPor",
     "created_at",
+    "SucursalID",
   ];
 
   protected $append = [

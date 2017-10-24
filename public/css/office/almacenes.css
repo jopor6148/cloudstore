@@ -20,3 +20,8 @@
 .divReporteInv{
   width: 100%;
 }
+
+.divArticulos{
+  width: 100%;
+  float: left;
+}

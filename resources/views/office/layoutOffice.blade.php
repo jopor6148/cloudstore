@@ -7,11 +7,25 @@
   </head>
   <link rel="stylesheet" href="{{url('css/office/layout.css')}}">
   <script src="{{url("assets/jquery/jquery.min.js")}}" charset="utf-8"></script>
+  <script src="{{url("js/office/layoutOffice.js")}}" charset="utf-8"></script>
   @yield('css')
   @yield('js')
   <body>
     <div class="content" id="content">
       @yield('content')
     </div>
+
+
+
+    <div class="modalCloud" style="display:none">
+      <div class="cover"></div>
+      <div class="modal">
+        <div class="headModal">head</div>
+        <div class="contentModal">content</div>
+        <div class="footModal">foot</div>
+      </div>
+    </div>
+
+
   </body>
 </html>

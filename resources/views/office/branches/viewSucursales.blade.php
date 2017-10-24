@@ -1,4 +1,7 @@
 @extends('office/layoutOffice')
+@section('js')
+<script src="{{url("js/office/sucursales.js")}}" charset="utf-8"></script>
+@endsection
 @section('content')
   {{dump($sucursales)}}
   <div class="contentSucursales">
@@ -15,9 +18,9 @@
 
     {{dump(@$errors)}}
 
-    <div class="tableSucursales">
+    <div class="divtableSucursales">
       <h3>Sucursales</h3>
-        <table>
+        <table class="tableSucursales contentTable">
           <thead>
             <tr>
               <th>#</th>
@@ -28,7 +31,7 @@
           </thead>
           <tbody>
             @forelse ($sucursales as $key => $value)
-              <tr>
+              <tr sucursal="{{$value->SucursalID}}" >
                 <td>{{$key+1}}</td>
                 <td>{{$value->SucursalID}}</td>
                 <td>{{$value->NombreSucursal}}</td>
