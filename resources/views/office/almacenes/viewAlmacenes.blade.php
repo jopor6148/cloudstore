@@ -23,7 +23,7 @@ $rutaAlmacenes = "{{url("")}}";
 
     <div class="errors">
       {{dump(@$errors)}}
-      {{dump($sucursal)}}
+      {{dump(@$sucursal)}}
     </div>
 
     <div class="tableAlmacenes contentTable">

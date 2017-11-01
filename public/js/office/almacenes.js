@@ -43,7 +43,8 @@ var obtenerInventario = function(almacen){
   .done(function(data){
       $(".divReporteInv").html(data);
   })
-  .fail(function(){
+  .fail(function(e){
+    console.log(e);
     alert("Error conexión");
   });
 
