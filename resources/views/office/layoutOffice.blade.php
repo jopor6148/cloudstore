@@ -20,7 +20,12 @@
     <div class="modalCloud" style="display:none">
       <div class="cover"></div>
       <div class="modal">
-        <div class="headModal">head</div>
+        <div class="headg">
+          <div class="headModal">head</div>
+          <div class="headCloase">
+            <span>X</span>
+          </div>
+        </div>
         <div class="contentModal">content</div>
         <div class="footModal">foot</div>
       </div>

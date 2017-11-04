@@ -1,5 +1,7 @@
 
 
+// funcion para sintetizar los envios de Post o Get
+
 var send = function(type){
 
   if (type == "post") {
@@ -23,6 +25,9 @@ var send = function(type){
 };
 
 
+// obtiene el inventario del almacen seleccionado
+
+
 var obtenerInventario = function(almacen){
 
   if (almacen == undefined) {
@@ -38,7 +43,7 @@ var obtenerInventario = function(almacen){
       almacen:almacen
     },
   };
-  objSend.type="html",
+  objSend.type="html";
   $.post(objSend.url,objSend.data,"",objSend.type)
   .done(function(data){
       $(".divReporteInv").html(data);
@@ -47,6 +52,35 @@ var obtenerInventario = function(almacen){
     console.log(e);
     alert("Error conexión");
   });
+
+}
+
+
+// objtiene formulario para hacer ingreso de productos a almacen
+
+var formularioIngreso =  function(datos){
+
+  if(datos.almacen ==  undefined){
+    return;
+  }
+
+  objSend.url = location.origin+"/office/almacenes";
+  objSend.data=
+  {
+    funcion:"formularioIngreso",
+    datos:datos,
+  };
+  objSend.type="html";
+
+  $.post(objSend.url,objSend.data,"",objSend.type)
+  .done(function(data){
+      modalCloudShow(true,"",data,"",false);
+  })
+  .fail(function(e){
+    console.log(e);
+    alert("Error conexión");
+  });
+
 
 }
 
@@ -68,6 +102,15 @@ $(function (){
     $val = $(this).val();
     console.log($val);
     $(document).find(".formAgregaAlmacen input[name=Nombre]").val($val);
+  });
+
+
+  $(this).on("click",".ingresoAlmacen",function(e){
+    $datos =
+    {
+      almacen:$(this).attr("almacen"),
+    }
+    formularioIngreso($datos);
   });
 
 })

@@ -26,31 +26,22 @@
             </tr>
           @empty
             <tr>
-              <td colspan="4">sin articulos</td>
+              <td colspan="5">sin articulos</td>
             </tr>
           @endforelse
         @else
           <tr>
-            <td colspan="4">sin articulos</td>
+            <td colspan="5">sin articulos</td>
           </tr>
         @endif
         <tr>
-          <td></td>
-          <td></td>
-          <td>
-            <select class="" name="">
-              <option value="none">selecciona articulo</option>
-              @foreach (cloudstore\Models\office\articulos::get() as $key => $value)
-                <option value="{{$value->ArticuloID}}">{{$value->Descripcion}}</option>
-              @endforeach
-            </select>
-          </td>
-          <td>
-            <input type="text" name="Cantidad" value="">
-          </td>
-          <td>
-            <button type="button" name="button">Enviar</button>
-          </td>
+          <td colspan="5" class="ingresoAlmacen" almacen="{{$datos[0]->AlmacenID}}">Ingresar</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="ingresoAlmacen" almacen="{{$datos[0]->AlmacenID}}">Mover de Almacen</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="enviarSucursal" almacen="{{$datos[0]->AlmacenID}}">Enviar a Sucursal</td>
         </tr>
       </tbody>
     </table>

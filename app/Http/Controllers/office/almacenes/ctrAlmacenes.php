@@ -120,4 +120,10 @@ class ctrAlmacenes extends Controller
       return view("office/inventarios/viewInventario",["datos"=>almacenes::where(["AlmacenID"=>$request->datos["almacen"]])->get()]);
     }
 
+
+    private function formularioIngreso($request){
+
+      return view("office/almacenes/formIngresoAlmacen");
+    }
+
 }

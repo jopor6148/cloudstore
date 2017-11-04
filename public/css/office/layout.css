@@ -31,25 +31,40 @@ table tbody tr:hover{
   background-color: #fff;
   margin: 0 auto;
   z-index: 1005;
-  width: 50%;
+  width: 70%;
   position: fixed;
   top: 156px;
   margin: 0 auto;
-  left: 25%;
+  left: 15%;
   border-radius: 3px;
 }
 
-.modalCloud .head{
+.modalCloud .headg{
   height: 50px;
   width: 100%;
+  display: flex;
+  border-bottom: 1px solid #eee;
 }
 
-.modalCloud .content{
+.modalCloud .contentModal{
   height: 50px;
   width: auto;
 }
 
-.modalCloud .foot{
+.modalCloud .footModal{
   height: 50px;
   width: 100%;
+  border-bottom: 1px solid #eee;
+}
+.headModal{
+  width: 95%;
+}
+.headCloase{
+  width: 5%;
+  line-height: 3;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(152, 3, 3);
+  color: #fff;
+  border-radius: 3px;
 }
