@@ -85,6 +85,32 @@ var formularioIngreso =  function(datos){
 }
 
 
+var articulosFiltro = function(datos){
+
+  if(datos ==  undefined){
+    return;
+  }
+
+  objSend.url = location.origin+"/office/almacenes";
+  objSend.data=
+  {
+    funcion:"articulosFiltradosIngreso",
+    datos:datos,
+  };
+  objSend.type="html";
+
+  $.post(objSend.url,objSend.data,"",objSend.type)
+  .done(function(data){
+      $(document).find(".divResultadoBusquedas").html(data);
+  })
+  .fail(function(e){
+    console.log(e);
+    alert("Error conexión");
+  });
+
+}
+
+
 $(function (){
 
 
@@ -111,6 +137,29 @@ $(function (){
       almacen:$(this).attr("almacen"),
     }
     formularioIngreso($datos);
+  });
+
+
+  $(this).on("keyup",".filtrosArticulos input",function(){
+      datos = {};
+      $pasa = false;
+      console.log("pasa1");
+    $(document).find(".filtrosArticulos input").each(function(index,field){
+      if ($(field).val() != "") {
+        if ($(field).val().length > 3) {
+          console.log("pasa");
+          $pasa = true;
+          datos[$(field).attr("name")] = $(this).val();
+        }
+      }
+    });
+
+    if ($pasa){
+      articulosFiltro(datos);
+    }else{
+      $(document).find(".divResultadoBusquedas").html("");
+    }
+
   });
 
 })

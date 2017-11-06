@@ -7,6 +7,7 @@ use Illuminate\Database\QueryException;
 use cloudstore\Http\Controllers\Controller;
 use cloudstore\Models\office\almacenes;
 use cloudstore\Models\office\sucursale;
+use cloudstore\Models\office\articulos;
 
 class ctrAlmacenes extends Controller
 {
@@ -124,6 +125,20 @@ class ctrAlmacenes extends Controller
     private function formularioIngreso($request){
 
       return view("office/almacenes/formIngresoAlmacen");
+    }
+
+
+    private function articulosFiltradosIngreso($request){
+
+      $articulos = articulos::select("*");
+      foreach ($request->datos as $key => $value) {
+        $articulos = $articulos->where($key,"like","%$value%");
+      }
+
+      $articulos = $articulos->get();
+
+      return view("office/almacenes/articulosFiltradosIngreso",compact("articulos"));
+
     }
 
 }
