@@ -8,10 +8,11 @@ class inventarios extends Model
 {
   protected $table ='inventarios';
   protected $connection ="corecloudstore";
-  protected $primaryKey = "AlmacenID";
+  protected $primaryKey = "InventarioID";
 
   protected $fillable =
   [
+    "InventarioID",
     "AlmacenID",
     "PedimentoID",
     "LoteID",

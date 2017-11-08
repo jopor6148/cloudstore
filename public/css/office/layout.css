@@ -49,6 +49,7 @@ table tbody tr:hover{
 .modalCloud .contentModal{
   height: 50px;
   width: auto;
+  padding: 15px;
 }
 
 .modalCloud .footModal{

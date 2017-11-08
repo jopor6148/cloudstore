@@ -35,7 +35,9 @@
                 <td>{{$key+1}}</td>
                 <td>{{$value->SucursalID}}</td>
                 <td>{{$value->NombreSucursal}}</td>
-                <td><button type="button" class="editarSucursal" name="{{$value->SucursalID}}" suc="{{$value->SucursalID}}">Editar</button></td>
+                <td>
+                  {{-- <button type="button" class="editarSucursal" name="{{$value->SucursalID}}" suc="{{$value->SucursalID}}">Editar</button> --}}
+                </td>
               </tr>
             @empty
             @endforelse
@@ -45,7 +47,9 @@
                 <td>Agregar Sucursal</td>
                 <td>Codigo</td>
                 <td><input type="text" name="Nombre" value="" placeholder="Nombre"></td>
-                <td><button type="submit" name="agregarSuc" value="agregarSuc">Agregar</button></td>
+                <td>
+                  <button type="submit" name="agregarSuc" value="agregarSuc">Agregar</button>
+                </td>
               </form>
             </tr>
           </tbody>

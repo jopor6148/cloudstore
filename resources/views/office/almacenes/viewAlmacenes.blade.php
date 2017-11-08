@@ -47,7 +47,9 @@ $rutaAlmacenes = "{{url("")}}";
                 <td>@foreach ($value->sucursal()->get() as $keysucursal => $valuesucursal)
                   {{$valuesucursal->NombreSucursal}}
                 @endforeach</td>
-                <td><button type="button" class="editarSucursal" name="{{$value->AlmacenID}}" suc="{{$value->AlmacenID}}">Editar</button></td>
+                <td>
+                  {{-- <button type="button" class="editarSucursal" name="{{$value->AlmacenID}}" suc="{{$value->AlmacenID}}">Editar</button> --}}
+                </td>
               </tr>
             @empty
             @endforelse

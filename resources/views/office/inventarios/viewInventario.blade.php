@@ -16,13 +16,15 @@
       </thead>
       <tbody>
         @if ($datos[0]->inventario)
-          @forelse ($datos[0]->articulos()->select(["inventarios.*","articulos.*"])->get() as $key => $value)
+          @forelse ($datos[0]->articulos()->select(["inventarios.*","articulos.*",DB::raw("sum(inventarios.Cantidad) as CantidadReal")]) -> groupBy(["inventarios.ArticuloID"]) ->get() as $key => $value)
             <tr>
               <td>{{$value->Descripcion}}</td>
               <td>{{$value->PedimentoID}}</td>
               <td>{{$value->LoteID}}</td>
-              <td>{{$value->Cantidad}}</td>
-              <td><button type="button" name="button">Editar</button></td>
+              <td>{{$value->CantidadReal}}</td>
+              <td>
+                {{-- <button type="button" name="button">Editar</button> --}}
+              </td>
             </tr>
           @empty
             <tr>

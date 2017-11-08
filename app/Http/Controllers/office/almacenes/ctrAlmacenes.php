@@ -8,6 +8,8 @@ use cloudstore\Http\Controllers\Controller;
 use cloudstore\Models\office\almacenes;
 use cloudstore\Models\office\sucursale;
 use cloudstore\Models\office\articulos;
+use cloudstore\Models\office\inventarios;
+use DB;
 
 class ctrAlmacenes extends Controller
 {
@@ -122,22 +124,101 @@ class ctrAlmacenes extends Controller
     }
 
 
-    private function formularioIngreso($request){
-
-      return view("office/almacenes/formIngresoAlmacen");
+    private function seleccionIngreso($request){
+      $almacen = $request->datos["almacen"];
+      return view("office/almacenes/seleccionaIngresoAlmacen",compact(["almacen"]));
     }
 
 
     private function articulosFiltradosIngreso($request){
 
       $articulos = articulos::select("*");
-      foreach ($request->datos as $key => $value) {
-        $articulos = $articulos->where($key,"like","%$value%");
+      if(count($request->datos) > 0){
+        foreach ($request->datos as $key => $value) {
+          $cadena = explode(" ",$value);
+          foreach ($cadena as $kc => $vc) {
+            $articulos = $articulos->where($key,"like","%$vc%");
+          }
+        }
+      }
+
+      if (count($request->seleccionados) > 0) {
+        foreach ($request->seleccionados as $key => $value) {
+          $articulos = $articulos->where("ArticuloID","=",$key,"or");
+        }
       }
 
       $articulos = $articulos->get();
 
+      if (count($request->datos) <= 0 and count($request->seleccionados) <= 0) {
+        $articulos=[];
+      }
+
       return view("office/almacenes/articulosFiltradosIngreso",compact("articulos"));
+
+    }
+
+
+
+    private function formularioIngreso ($request){
+
+      $almacen = $request->almacen;
+
+      if(count( $request->datos) > 0){
+        $articulos = articulos::select("*");
+        foreach ($request->datos as $key => $value) {
+            $articulos = $articulos->where("ArticuloID","=","$key","or");
+        }
+        $articulos = $articulos->get();
+      }else{
+        $articulos = [];
+      }
+
+      return view("office/almacenes/articulosIngresa",compact(["articulos","almacen"]));
+
+    }
+
+
+
+    private function ingresoAlmacen($request){
+
+      $articulos = [];
+
+      foreach ($request->datos["articulos"] as $key => $value) {
+        $articulos[]=
+        [
+          "AlmacenID"=>(int)$request->datos["AlmacenID"],
+          "ArticuloID"=>(int)$key,
+          "Cantidad"=>$value["Cantidad"],
+          "LoteID"=>$value["LoteID"],
+          "PedimentoID"=>$value["PedimentoID"],
+        ];
+      }
+
+      DB::connection('corecloudstore')->enableQueryLog();
+      try {
+
+
+        foreach ($articulos as $key => $value) {
+          inventarios::create(
+              $value
+          );
+        }
+
+      } catch (QueryException $db) {
+
+          return json_encode(
+            [
+              "error"=>true,
+              "DBmessage"=>$db,
+              "query"=>DB::connection("corecloudstore")->getQueryLog(),
+              "datos"=>$articulos
+            ]
+          );
+
+      }
+
+      return json_encode(["error"=>false]);
 
     }
 
