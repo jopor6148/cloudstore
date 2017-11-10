@@ -12,7 +12,23 @@
   @yield('js')
   <body>
     <div class="content" id="content">
-      @yield('content')
+      <div class="divLogo">
+        LOGO
+      </div>
+      <div class="divToolsNav">
+        Tools
+      </div>
+      <div class="contentAll">
+        <div class="divNavHorizontal">
+          <label for="">Office</label>
+          <ul>
+            <li> <a href="{{url("office/articulos")}}">Articulos</a> </li>
+          </ul>
+        </div>
+        <div class="contentApps">
+          @yield('content')
+        </div>
+      </div>
     </div>
 
 

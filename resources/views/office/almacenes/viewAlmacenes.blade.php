@@ -22,8 +22,8 @@ $rutaAlmacenes = "{{url("")}}";
     @endif
 
     <div class="errors">
-      {{dump(@$errors)}}
-      {{dump(@$sucursal)}}
+      {{-- {{dump(@$errors)}}
+      {{dump(@$sucursal)}} --}}
     </div>
 
     <div class="tableAlmacenes contentTable">
@@ -118,6 +118,23 @@ $rutaAlmacenes = "{{url("")}}";
                 <td colspan="4">Sin articulos</td>
               </tr>
             @endforelse
+            <tr>
+              <td>
+                <input type="text" name="Codigo" value="">
+              </td>
+              <td>
+                <input type="text" name="Descripcion" value="">
+              </td>
+              <td>
+                <input type="text" name="PrecioMenudeo" value="">
+              </td>
+              <td>
+                <input type="text" name="PrecioMayoreo" value="">
+              </td>
+              <td>
+                <button type="button" name="agregarArticulo">Enviar</button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

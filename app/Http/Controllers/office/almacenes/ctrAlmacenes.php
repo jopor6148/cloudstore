@@ -20,7 +20,6 @@ class ctrAlmacenes extends Controller
      */
     public function index()
     {
-
         $almacenes=almacenes::where(['Estatus'=>1])->get();
         return view('office/almacenes.viewAlmacenes',compact('almacenes'));
     }

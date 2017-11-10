@@ -3,7 +3,7 @@
 <script src="{{url("js/office/sucursales.js")}}" charset="utf-8"></script>
 @endsection
 @section('content')
-  {{dump($sucursales)}}
+  {{-- {{dump($sucursales)}} --}}
   <div class="contentSucursales">
 
     @if (session()->has('respuesta'))
@@ -16,7 +16,7 @@
       </div>
     @endif
 
-    {{dump(@$errors)}}
+    {{-- {{dump(@$errors)}} --}}
 
     <div class="divtableSucursales">
       <h3>Sucursales</h3>
