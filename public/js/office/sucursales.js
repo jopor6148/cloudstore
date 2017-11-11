@@ -21,6 +21,7 @@ var obtenerAlmacen = function(sucursal){
   .done(function(data){
       $(".divContrlesSucursal").html(data);
       modalCloudShow(false);
+      $('.nav-tabs li:eq(1) a').tab('show');
   })
   .fail(function(){
     alert("Error conexión");

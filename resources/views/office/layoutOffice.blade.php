@@ -36,7 +36,7 @@
 
     <div class="modalCloud" style="display:none">
       <div class="cover"></div>
-      <div class="modal">
+      <div class="mimodal">
         <div class="headg">
           <div class="headModal">head</div>
           <div class="headCloase">

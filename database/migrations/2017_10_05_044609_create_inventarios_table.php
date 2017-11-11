@@ -16,8 +16,8 @@ class CreateInventariosTable extends Migration
         Schema::create('inventarios', function (Blueprint $table) {
             $table->increments('InventarioID');
             $table->bigInteger('AlmacenID');
-            $table->bigInteger('PedimentoID');
-            $table->bigInteger('LoteID');
+            $table->bigInteger('PedimentoID')->nullable(true);
+            $table->bigInteger('LoteID')->nullable(true);
             $table->bigInteger('ArticuloID');
             $table->float('Cantidad');
             $table->timestamps();

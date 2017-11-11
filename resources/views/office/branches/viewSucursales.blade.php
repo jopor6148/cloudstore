@@ -29,7 +29,7 @@
 <div class="contentApps">
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <ul  class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#Sucursales" aria-controls="Sucursales" role="tab" data-toggle="tab">Sucursales</a></li>
     <li role="presentation" class=""><a href="#Almacenes" aria-controls="Almacenes" role="tab" data-toggle="tab">Almacenes</a></li>
   </ul>
