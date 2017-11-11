@@ -23,6 +23,7 @@
           <label for="">Office</label>
           <ul>
             <li> <a href="{{url("office/articulos")}}">Articulos</a> </li>
+            <li> <a href="{{url("office/branches")}}">Sucursales</a> </li>
           </ul>
         </div>
         <div class="contentApps">

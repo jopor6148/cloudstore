@@ -1,14 +1,14 @@
-@extends('office/layoutOffice')
-@section('css')
+{{-- @extends('office/layoutOffice')
+@section('css') --}}
   <link rel="stylesheet" href="{{url("css/office/almacenes.css")}}">
-@endsection
-@section('js')
+{{-- @endsection
+@section('js') --}}
 <script src="{{url("js/office/almacenes.js")}}" charset="utf-8"></script>
 <script type="text/javascript">
 $rutaAlmacenes = "{{url("")}}";
 </script>
-@endsection
-@section('content')
+{{-- @endsection
+@section('content') --}}
   <div class="contentAlmacenes">
 
     @if (session()->has('respuesta'))
@@ -93,7 +93,7 @@ $rutaAlmacenes = "{{url("")}}";
     </div>
 
 
-    <div class="divArticulos">
+    {{-- <div class="divArticulos">
       <h3>Todos los articulos</h3>
       <div class="divTabla articulos contentTable">
         <table class="">
@@ -138,7 +138,7 @@ $rutaAlmacenes = "{{url("")}}";
           </tbody>
         </table>
       </div>
-    </div>
+    </div> --}}
 
     <div class="divContrlesSucursal">
 
@@ -147,4 +147,4 @@ $rutaAlmacenes = "{{url("")}}";
 
 
   </div>
-@endsection
+{{-- @endsection --}}

@@ -11,7 +11,6 @@
           <th>Pedimento</th>
           <th>Lote</th>
           <th>Cantidad</th>
-          <th>copntroles</th>
         </tr>
       </thead>
       <tbody>
@@ -37,14 +36,14 @@
           </tr>
         @endif
         <tr>
-          <td colspan="5" class="ingresoAlmacen" almacen="{{$datos[0]->AlmacenID}}">Ingresar</td>
+          <td colspan="5" class="ingresoAlmacen" almacen="{{$datos[0]->AlmacenID}}">Agregar Articulos</td>
         </tr>
-        <tr>
+        {{-- <tr>
           <td colspan="5" class="ingresoAlmacen" almacen="{{$datos[0]->AlmacenID}}">Mover de Almacen</td>
         </tr>
         <tr>
           <td colspan="5" class="enviarSucursal" almacen="{{$datos[0]->AlmacenID}}">Enviar a Sucursal</td>
-        </tr>
+        </tr> --}}
       </tbody>
     </table>
   </div>

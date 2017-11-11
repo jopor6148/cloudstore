@@ -15,11 +15,11 @@ class CreateArticulosTable extends Migration
     {
         Schema::create('articulos', function (Blueprint $table) {
             $table->bigIncrements('ArticuloID');
-            $table->string("Codigo",100);
+            $table->string("Codigo",100)->unique();
             $table->float("Costo");
             $table->float("PrecioMenudeo");
             $table->float("PrecioMayoreo");
-            $table->string("Imagen",100);
+            $table->string("Imagen",100)->nullable(true);
             $table->string("Descripcion",300);
             $table->integer("Estatus");
             $table->integer("ModificadoPor");

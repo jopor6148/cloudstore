@@ -3,7 +3,9 @@
 namespace cloudstore\Http\Controllers\office\articulos;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use cloudstore\Http\Controllers\Controller;
+use cloudstore\Models\office\articulos;
 
 class ctrArticulos extends Controller
 {
@@ -14,8 +16,9 @@ class ctrArticulos extends Controller
      */
     public function index()
     {
-        //
-        return view("office/articulos/viewArticulos");
+        $articulos = articulos::get();
+
+        return view("office/articulos/viewArticulos",compact(["articulos"]));
     }
 
     /**
@@ -36,7 +39,14 @@ class ctrArticulos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->has("fcn")) {
+          if (!method_exists($this,$request->fcn)) {
+            return redirect()->back();
+          }
+
+          return $this->{$request->fcn}($request);
+
+        }
     }
 
     /**
@@ -83,4 +93,38 @@ class ctrArticulos extends Controller
     {
         //
     }
+
+
+
+    //
+
+
+    private function altaArticulo($request){
+
+      $datosAriculos =[
+        "Codigo"=>$request->Codigo,
+        "Descripcion"=>$request->Descripcion,
+        "Costo"=>$request->Costo,
+        "PrecioMayoreo"=>"$request->PrecioMayoreo",
+        "PrecioMenudeo"=>$request->PrecioMenudeo,
+      ];
+
+      try {
+
+        articulos::create(
+          $datosAriculos
+        );
+
+
+      } catch (QueryException $e) {
+        $error =$e->getPrevious();
+        return redirect()->back()->withErrors([$error->errorInfo[2]]);
+      }
+
+      return redirect()->back()->with(['mensaje'=>['Alta de articulo '.$request->Codigo]]);
+
+    }
+
+
+
 }
