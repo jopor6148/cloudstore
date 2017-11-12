@@ -42,7 +42,7 @@
 
       <div class="divtableSucursales">
         <h3>Sucursales</h3>
-          <table class="tableSucursales contentTable">
+          <table class="tableSucursales contentTable  table table-hover">
             <thead>
               <tr>
                 <th>#</th>

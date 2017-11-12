@@ -15,7 +15,7 @@ class CreateLotesTable extends Migration
     {
         Schema::create('lotes', function (Blueprint $table) {
             $table->increments('LoteID');
-            $table->string("Numero",100);
+            $table->string("Numero",100)->inique();
             $table->dateTime("FechaCaducidad");
             $table->dateTime("FechaEntrada");
             $table->timestamps();

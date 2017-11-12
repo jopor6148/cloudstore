@@ -15,7 +15,8 @@ class CreatePedimentosTable extends Migration
     {
         Schema::create('pedimentos', function (Blueprint $table) {
             $table->bigIncrements("PedimentoID");
-            $table->string("Numero",100);
+            $table->string("Numero",100)->unique();
+            $table->dateTime("FechaEntrada");
             $table->timestamps();
         });
     }

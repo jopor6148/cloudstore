@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use cloudstore\Http\Controllers\Controller;
 use cloudstore\Models\office\articulos;
+use cloudstore\Models\office\pedimentos;
+use cloudstore\Models\office\lotes;
 
 class ctrArticulos extends Controller
 {
@@ -122,6 +124,59 @@ class ctrArticulos extends Controller
       }
 
       return redirect()->back()->with(['mensaje'=>['Alta de articulo '.$request->Codigo]]);
+
+    }
+
+
+
+    private function altaPedimento($request){
+
+      $datosPedimento = [
+        "Numero"=>$request->Numero,
+        "FechaEntrada"=>$request->FechaEntrada,
+      ];
+
+
+      try {
+
+        pedimentos::create(
+          $datosPedimento
+        );
+
+
+      } catch (QueryException $e) {
+        $error =$e->getPrevious();
+        return redirect()->back()->withErrors([$error->errorInfo[2]]);
+      }
+
+      return redirect()->back()->with(['mensaje'=>['Alta de pedimeto '.$request->Numero]]);
+
+    }
+
+
+
+    private function altalote($request){
+
+      $datosLote = [
+        "Numero"=>$request->Numero,
+        "FechaEntrada"=>$request->FechaEntrada,
+        "FechaCaducidad"=>$request->FechaCaducidad,
+      ];
+
+
+      try {
+
+        lotes::create(
+          $datosLote
+        );
+
+
+      } catch (QueryException $e) {
+        $error =$e->getPrevious();
+        return redirect()->back()->withErrors([$error->errorInfo[2]]);
+      }
+
+      return redirect()->back()->with(['mensaje'=>['Alta de lote '.$request->Numero]]);
 
     }
 

@@ -12,6 +12,7 @@ class pedimentos extends Model
   protected $fillable =
   [
     "PedimentoID",
+    "FechaEntrada",
     "Numero",
     "created_at",
   ];

@@ -1,24 +1,32 @@
 @extends('office.layoutOffice')
 @section('css')
-  <link rel="stylesheet" href="{{url("assets/bootstrap/css/bootstrap.min.css")}}">
-  <link rel="stylesheet" href="{{url("assets/bootstrap/css/bootstrap-theme.min.css")}}">
+
   <style media="screen">
-    .divFormAltaArticulo{
-      width: 50%;
-    }
 
     .divFormAltaArticulo input{
-      width: 100%;
       margin: 5px;
-    }
-
-    .headArticulos{
-      width: 100%;
     }
   </style>
 @endsection
 @section('js')
-  <script src="{{url("assets/bootstrap/js/bootstrap.min.js")}}" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function(){
+
+      $(document).find("input[name=FechaEntrada]").datepicker({
+        dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true
+      });
+
+
+      $(document).find("input[name=FechaCaducidad]").datepicker({
+        dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true
+      });
+
+    })
+  </script>
 @endsection
 @section('content')
 
@@ -53,14 +61,19 @@
 
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#articulos" aria-controls="articulos" role="tab" data-toggle="tab">Artuculos</a></li>
-          <li role="presentation"><a href="#alta" aria-controls="alta" role="tab" data-toggle="tab">Alta</a></li>
+          <li role="presentation"><a href="#alta" aria-controls="Alta" role="tab" data-toggle="tab">Alta</a></li>
+          <li role="presentation"><a href="#Pedimentos" aria-controls="Pedimentos" role="tab" data-toggle="tab">Pedimentos</a></li>
+          <li role="presentation"><a href="#Lotes" aria-controls="Lotes" role="tab" data-toggle="tab">Lotes</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
+
+
+
           <div role="tabpanel" class="tab-pane active" id="articulos">
 
-            <table>
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th>Codigo</th>
@@ -88,6 +101,10 @@
 
 
           </div>
+
+
+
+
           <div role="tabpanel" class="tab-pane" id="alta">
 
             <div class="divFormAltaArticulo">
@@ -99,11 +116,67 @@
                 <input type="text" name="Costo" value="" placeholder="Precio">
                 <input type="text" name="PrecioMayoreo" value="" placeholder="Precio Mayoreo">
                 <input type="text" name="PrecioMenudeo" value="" placeholder="PrecioMenudeo">
+                <div class="" style="clear:both">  </div>
                 <input type="submit" name="submitAltaarticulo" value="Enviar">
               </form>
             </div>
 
           </div>
+
+{{-- contenido de Pedimentos --}}
+
+          <div role="tabpanel" class="tab-pane" id="Pedimentos">
+
+
+            <div class="divAltaPedimentos">
+
+
+              <form class="formAltaArticul" action="{{url("office/articulos")}}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="fcn" value="altaPedimento">
+                <input type="text" name="Numero" value="" placeholder="Numero">
+                <input type="text" name="FechaEntrada" value="" placeholder="yyyy-mm-dd">
+                <div class="" style="clear:both">  </div>
+                <input type="submit" name="submitAltaarticulo" value="Enviar">
+              </form>
+
+
+
+            </div>
+
+
+          </div>
+
+
+
+{{-- contenido de lotes --}}
+
+
+          <div role="tabpanel" class="tab-pane" id="Lotes">
+
+
+            <div class="divAltaLotes">
+
+
+
+                <form class="formAltaArticul" action="{{url("office/articulos")}}" method="post">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="fcn" value="altaLote">
+                  <input type="text" name="Numero" value="" placeholder="Numero">
+                  <input type="text" name="FechaEntrada" value="" placeholder="Entrada yyyy-mm-dd">
+                  <input type="text" name="FechaCaducidad" value="" placeholder="Caducidad yyyy-mm-dd">
+                  <div class="" style="clear:both">  </div>
+                  <input type="submit" name="submitAltaarticulo" value="Enviar">
+                </form>
+
+
+            </div>
+
+
+          </div>
+
+
+
         </div>
 
       </div>

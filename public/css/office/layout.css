@@ -1,25 +1,26 @@
 
 #content{
-  width: 100%;
   height: 100%;
-  background-color: #b7d6e3;
+  background-color: #fff;
   min-height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  margin: 0 auto;
 }
 
-#content table{
+/*#content table{
   text-align: center;
 }
 table tbody tr:hover{
   background: #e8e8e8;
   cursor: pointer;
-}
+}*/
 
 
 .contentTable{
-  height: 150px;
+  /*height: 150px;*/
   overflow-y:scroll;
 }
 
@@ -67,7 +68,7 @@ table tbody tr:hover{
 .headModal{
   width: 95%;
 }
-.headCloase{
+.headClose{
   width: 5%;
   line-height: 3;
   text-align: center;
@@ -78,27 +79,26 @@ table tbody tr:hover{
 }
 
 .divLogo{
-  width: 100%;
+  /*width: 100%;*/
   height: 50px;
-  background-color: #fff;
+  background-color: #aad5db;
 }
 
 .divToolsNav{
-  width: 100%;
-  height: 50px;
-  background-color: #1198E1;
+  /*width: 100%;*/
+  height: 30px;
+  background-color: #8baaaf;
   color: #fff;
 }
 
 .contentAll{
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   min-height: 100%;
-  display: inline-flex;
 }
 
 .divNavHorizontal{
-  width: 12%;
+  /*width: 12%;*/
   height: 100%;
   min-height: 100%;
   background-color: #89c6df;
@@ -106,7 +106,7 @@ table tbody tr:hover{
 
 
 .contentApps{
-  width: 88%;
+  /*width: 88%;*/
   height: 100%;
   min-height: 100%;
 }
@@ -124,7 +124,7 @@ table tbody tr:hover{
 }
 
 .divNavHorizontal ul li a{
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   color: #fff;
 }

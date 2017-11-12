@@ -14,7 +14,7 @@ class lotes extends Model
     "LoteID",
     "Numero",
     "FechaCaducidad",
-    "created_at",
+    "FechaEntrada",
   ];
 
   protected $append = [

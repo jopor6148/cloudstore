@@ -48,7 +48,7 @@ $(function(){
   });
 
 
-  $(this).on("click",".headCloase",function(){
+  $(this).on("click",".headClose",function(){
     this.onlyShowModal = true;
     $(document).find(".modalCloud").find(".headModal").html("");
     $(document).find(".modalCloud").find(".contentModal").html("");

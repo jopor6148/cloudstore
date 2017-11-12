@@ -28,7 +28,7 @@ $rutaAlmacenes = "{{url("")}}";
 
     <div class="tableAlmacenes contentTable">
       <h3>Almacenes</h3>
-        <table id="tableAlmacenes">
+        <table id="tableAlmacenes" class="table table-hover">
           <thead>
             <tr>
               <th>#</th>
