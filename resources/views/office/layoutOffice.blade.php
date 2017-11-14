@@ -11,13 +11,16 @@
   <link rel="stylesheet" href="{{url("assets/bootstrap/css/bootstrap-theme.min.css")}}">
   <link rel="stylesheet" href="{{url('assets/normalize/normalize.css')}}">
   <link rel="stylesheet" href="{{url('css/office/layout.css')}}">
+  
   <script src="{{url("assets/jquery/jquery.min.js")}}" charset="utf-8"></script>
+
+
   <script src="{{url("js/office/layoutOffice.js")}}" charset="utf-8"></script>
   <script src="{{url("assets/bootstrap/js/bootstrap.min.js")}}" charset="utf-8"></script>
   <script src="{{url("assets/jquery-ui/jquery-ui.min.js")}}" charset="utf-8"></script>
-  <script src="{{url("assets/jquery-ui/jquery-ui.min.css")}}" charset="utf-8"></script>
-  <script src="{{url("assets/jquery-ui/jquery-ui.theme.min.css")}}" charset="utf-8"></script>
-  <script src="{{url("assets/jquery-ui/jquery-ui.structure.min.css")}}" charset="utf-8"></script>
+  <link rel="stylesheet" href="{{url("assets/jquery-ui/jquery-ui.min.css")}}">
+  <link rel="stylesheet" href="{{url("assets/jquery-ui/jquery-ui.theme.min.css")}}">
+  <link rel="stylesheet" href="{{url("assets/jquery-ui/jquery-ui.structure.min.css")}}">
   @yield('css')
   @yield('js')
   <body>
@@ -36,9 +39,13 @@
 
         <div class="divNavHorizontal col-md-2">
           <label for="">Office</label>
-          <ul>
+          <ul class="nav nav-pills nav-stacked">
             <li> <a href="{{url("office/articulos")}}">Articulos</a> </li>
             <li> <a href="{{url("office/branches")}}">Sucursales</a> </li>
+          </ul>
+          <label for="">Store</label>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="{{url("store/proveedores")}}">Proveedores</a> </li>
           </ul>
         </div>
 

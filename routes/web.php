@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +12,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
+
 require_once 'routes'.DIRECTORY_SEPARATOR.'office'.DIRECTORY_SEPARATOR.'routesOffice.php';
+
+require_once 'routes'.DIRECTORY_SEPARATOR.'store'.DIRECTORY_SEPARATOR.'routesStore.php';

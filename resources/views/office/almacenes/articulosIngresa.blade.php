@@ -10,10 +10,10 @@
             {{$value->Descripcion}}
           </div>
           <div class="datosAI">
-            <input type="hidden" name="Articulo" value="{{$value->ArticuloID}}">
-            <input type="text" name="Cantidad" value="">
-            <input type="text" name="Lote" value="">
-            <input type="text" name="Pedimento" value="">
+            <input type="hidden" name="Articulo" value="{{$value->ArticuloID}}" placeholder="">
+            <input type="text" name="Cantidad" value="" placeholder="Cantidad">
+            <input type="text" name="Lote" value="" placeholder="Lote">
+            <input type="text" name="Pedimento" value="" placeholder="Pedimento">
           </div>
         </li>
       @endforeach
