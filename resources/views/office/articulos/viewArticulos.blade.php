@@ -107,15 +107,15 @@
 
           <div role="tabpanel" class="tab-pane" id="alta">
 
-            <div class="divFormAltaArticulo">
+            <div class="divFormAltaArticulo col-md-6">
               <form class="formAltaArticul" action="" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="fcn" value="altaArticulo">
-                <input type="text" name="Codigo" value="" placeholder="Codigo">
-                <input type="text" name="Descripcion" value="" placeholder="Descripcion">
-                <input type="text" name="Costo" value="" placeholder="Precio">
-                <input type="text" name="PrecioMayoreo" value="" placeholder="Precio Mayoreo">
-                <input type="text" name="PrecioMenudeo" value="" placeholder="PrecioMenudeo">
+                <input class="form-control" type="text" name="Codigo" value="" placeholder="Codigo">
+                <input class="form-control" type="text" name="Descripcion" value="" placeholder="Descripcion">
+                <input class="form-control" type="text" name="Costo" value="" placeholder="Precio">
+                <input class="form-control" type="text" name="PrecioMayoreo" value="" placeholder="Precio Mayoreo">
+                <input class="form-control" type="text" name="PrecioMenudeo" value="" placeholder="PrecioMenudeo">
                 <div class="" style="clear:both">  </div>
                 <input type="submit" name="submitAltaarticulo" value="Enviar">
               </form>
@@ -128,14 +128,14 @@
           <div role="tabpanel" class="tab-pane" id="Pedimentos">
 
 
-            <div class="divAltaPedimentos">
+            <div class="divAltaPedimentos col-md-6">
 
 
               <form class="formAltaArticul" action="{{url("office/articulos")}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="fcn" value="altaPedimento">
-                <input type="text" name="Numero" value="" placeholder="Numero">
-                <input type="text" name="FechaEntrada" value="" placeholder="yyyy-mm-dd">
+                <input class="form-control" type="text" name="Numero" value="" placeholder="Numero">
+                <input class="form-control" type="text" name="FechaEntrada" value="" placeholder="yyyy-mm-dd">
                 <div class="" style="clear:both">  </div>
                 <input type="submit" name="submitAltaarticulo" value="Enviar">
               </form>
@@ -155,16 +155,16 @@
           <div role="tabpanel" class="tab-pane" id="Lotes">
 
 
-            <div class="divAltaLotes">
+            <div class="divAltaLotes col-md-6">
 
 
 
                 <form class="formAltaArticul" action="{{url("office/articulos")}}" method="post">
                   {{ csrf_field() }}
                   <input type="hidden" name="fcn" value="altaLote">
-                  <input type="text" name="Numero" value="" placeholder="Numero">
-                  <input type="text" name="FechaEntrada" value="" placeholder="Entrada yyyy-mm-dd">
-                  <input type="text" name="FechaCaducidad" value="" placeholder="Caducidad yyyy-mm-dd">
+                  <input class="form-control" type="text" name="Numero" value="" placeholder="Numero">
+                  <input class="form-control" type="text" name="FechaEntrada" value="" placeholder="Entrada yyyy-mm-dd">
+                  <input class="form-control" type="text" name="FechaCaducidad" value="" placeholder="Caducidad yyyy-mm-dd">
                   <div class="" style="clear:both">  </div>
                   <input type="submit" name="submitAltaarticulo" value="Enviar">
                 </form>

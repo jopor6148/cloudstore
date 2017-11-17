@@ -133,3 +133,7 @@ table tbody tr:hover{
   background-color: #89c6df;
   cursor: pointer;
 }
+
+input{
+  margin: 5px;
+}
