@@ -54,6 +54,10 @@
             <li> <a href="{{url("office/branches")}}">Sucursales</a> </li>
             <li> <a href="{{url("office/branches")}}">Sucursales</a> </li>
           </ul>
+          <label for="">Store</label>
+          <ul class="nav nav-pills nav-stacked">
+            <li> <a href="{{url("store/proveedores")}}">Proveedores</a> </li>
+          </ul>
         </div>
 
 

@@ -8,7 +8,7 @@
 $rutaAlmacenes = "{{url("")}}";
 </script>
 {{-- @endsection
-@section('content') --}}
+@section('content') --}}.
   <div class="contentAlmacenes">
 
     @if (session()->has('respuesta'))

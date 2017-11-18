@@ -124,9 +124,13 @@ table tbody tr:hover{
 
 .divNavHorizontal ul li a{
   color: #fff;
-}
+}*/
 
 .divNavHorizontal ul li:hover{
   background-color: #89c6df;
   cursor: pointer;
+}
+
+input{
+  margin: 5px;
 }
