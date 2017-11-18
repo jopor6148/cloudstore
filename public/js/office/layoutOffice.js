@@ -56,4 +56,10 @@ $(function(){
     $(document).find(".modalCloud").css({"display":"none"});
   });
 
+
+
+  $(this).on("click","#menuPrincipal li",function(){
+    $(document).find("#modalLoad").modal("show");
+  });
+
 })
